@@ -1,0 +1,17 @@
+version: "1"
+
+steps:
+  - name: hello
+    image: alpine
+    commands:
+      - echo "Hello from Vela on nyx!"
+      - uname -a
+      - date
+
+  - name: env
+    image: alpine
+    commands:
+      - echo "Repo: $VELA_REPO_FULL_NAME"
+      - echo "Branch: $VELA_BUILD_BRANCH"
+      - echo "Commit: $VELA_BUILD_COMMIT"
+      - echo "Author: $VELA_BUILD_AUTHOR"
