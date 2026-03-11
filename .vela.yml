@@ -1,5 +1,15 @@
 version: "1"
 
+secrets:
+  - name: docker_username
+    key: zapplebee/velatest/docker_username
+    engine: native
+    type: repo
+  - name: docker_password
+    key: zapplebee/velatest/docker_password
+    engine: native
+    type: repo
+
 steps:
   - name: hello
     image: alpine
