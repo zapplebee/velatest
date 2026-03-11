@@ -15,3 +15,14 @@ steps:
       - echo "Branch $VELA_BUILD_BRANCH"
       - echo "Commit $VELA_BUILD_COMMIT"
       - echo "Author $VELA_BUILD_AUTHOR"
+
+  - name: publish
+    image: target/vela-docker:latest
+    pull: always
+    secrets: [docker_username, docker_password]
+    parameters:
+      registry: harbor.prettybird.zapplebee.online
+      repo: harbor.prettybird.zapplebee.online/library/velatest
+      tags:
+        - harbor.prettybird.zapplebee.online/library/velatest:latest
+        - harbor.prettybird.zapplebee.online/library/velatest:${VELA_BUILD_COMMIT:0:8}
